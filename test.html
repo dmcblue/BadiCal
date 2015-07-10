@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="BadiCal.js"></script>
+		<script src="jquery-2.1.1.min.js"></script>
+	</head>
+	<body>
+		<div id="content">
+		
+		</div>
+		<script>
+			jQuery(document).ready(function(){
+				///*
+				function formatDate(d){
+					return d.y+'-'+d.m+'-'+d.d;
+				}
+				var br = '<br/>';
+				var tb = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				var tests =
+					[
+						{	//Naw Ruz
+							g : {y : 2015, m : 3, d : 21},
+							b : {y : 172, m : 1, d : 1}
+						},{	//1 Ridvan
+							g : {y : 2015, m : 4, d : 21},
+							b : {y : 172, m : 2, d : 13}
+						},{	//9 ridvan
+							g : {y : 2015, m : 4, d : 29},
+							b : {y : 172, m : 3, d : 2}
+						},{	//12 ridvan
+							g : {y : 2015, m : 5, d : 2},
+							b : {y : 172, m : 3, d : 5}
+						},{	//Dec of Bab
+							g : {y : 2015, m : 5, d : 24},
+							b : {y : 172, m : 4, d : 8}
+						},{	//asc Bah
+							g : {y : 2015, m : 5, d : 29},
+							b : {y : 172, m : 4, d : 13}
+						},{	//martyrdom Bab
+							g : {y : 2015, m : 7, d : 10},
+							b : {y : 172, m : 6, d : 17}
+						},{	//day of cov
+							g : {y : 2015, m : 11, d : 26},
+							b : {y : 172, m : 14, d : 4}
+						},{	//asc AB
+							g : {y : 2015, m : 11, d : 28},
+							b : {y : 172, m : 14, d : 6}
+						}
+					];
+				
+				function test(one, two){
+					return one.y == two.y && one.m == two.m && one.d == two.d;
+				}
+				
+				for(var i = 0, ilen = tests.length; i < ilen; i++){
+					var gd = tests[i]['g'];
+					gd = new BadiCal.BadiDate(gd.y, gd.m, gd.d);
+					var bd = tests[i]['b'];
+					bd = new BadiCal.BadiDate(bd.y, bd.m, bd.d);
+					jQuery('#content')
+						.append('Test '+i+br)
+						.append(tb+'G => B '+br)
+						.append(tb+tb+'Greg: '+formatDate(gd)+br)
+						.append(tb+tb+'Badi: '+formatDate(bd)+' [Expected]'+br)
+						.append(tb+tb+'Badi: '+formatDate(BadiCal.GregorianToBadi(gd.y, gd.m, gd.d))+' [Test]'+br)
+						.append(tb+tb+(test(BadiCal.GregorianToBadi(gd.y, gd.m, gd.d), bd) ? 'Success' : 'Failure')+br+br)
+						
+						.append(tb+'B => G '+br)
+						.append(tb+tb+'Badi: '+formatDate(bd)+br)
+						.append(tb+tb+'Greg: '+formatDate(gd)+' [Expected]'+br)
+						.append(tb+tb+'Greg: '+formatDate(BadiCal.BadiToGregorian(bd.y, bd.m, bd.d))+' [Test]'+br)
+						.append(tb+tb+(test(BadiCal.BadiToGregorian(bd.y, bd.m, bd.d), gd) ? 'Success' : 'Failure')+br+br+br)
+					;
+				}
+				//*/
+			});
+		</script>
+	</body>
+</html>
