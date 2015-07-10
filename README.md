@@ -1,6 +1,8 @@
 # BadiCal.js
 Javascript Library to translate between Gregorian and Badi calendars.
 
+See it in action: http://www.dmcblue.com/badical/
+
 Translations default to 'day of' dates.  Meaning 172-01-01 BE translates to 2015-03-21.  There are options to get the Gregorian evening on which a Badi date starts, etc.
 
 The library uses precalculated NawRuz dates from http://wilmetteinstitute.org/wp-content/uploads/2014/11/Bahai-Dates-172-to-221-B-E-_UK-December-2014.pdf .  Please report any errors (see BadiCal.NAWRUZ).
@@ -80,24 +82,24 @@ This object is used both internally for the library and as the output.  Each obj
 var bDate = new BadiCal.BadiDate(172, 1, 1, BadiCal.BADI);//Nawruz 2015
 ```
 
-**year(format)**
+**function year(format)**
 
 @param format = [Optional, default=false] Pads single digits with prepended '0' (zero).
 
 @return Year represented by this object.
 
-**month(format)**
+**function month(format)**
 
 @param format = [Optional, default=false] Pads single digits with prepended '0' (zero).
 
 @return Month represented by this object.
 
 
-**monthName(format)**
+**function monthName()**
 
 @return Month name (in English for Gregorian).
 
-**day(format)**
+**function day(format)**
 
 @param format = [Optional, default=false] Pads single digits with prepended '0' (zero).
 
@@ -108,12 +110,15 @@ var bDate = new BadiCal.BadiDate(172, 1, 1, BadiCal.BADI);//Nawruz 2015
 There are some other functions and variables attached to the BadiCal object which are used internally and may be useful to developers.
 
 **BadiCal.GREGORIAN**
+
 Used as BadiDate type for CE dates
 
 **BadiCal.BADI**
+
 Used as BadiDate type for BE dates.
 
 **BadiCal.BADI_MONTHS**
+
 Array with names for Badi Calendar months (zero based).  Includes Ayyam-i-Há.
 
 **BadiCal.getAyyamiha(bYear)**
