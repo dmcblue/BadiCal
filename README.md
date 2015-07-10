@@ -22,58 +22,85 @@ Everything is contained in the 'BadiCal' global object.
 
 ###Translation
 **BadiCal.BadiToGregorian(year, month, day, startsOn)**
+
 @param Integer year = Year in the Badi Calendar (1 or greater)
+
 @param Integer month = Month in the Badi Calendar [1 - 20].  19 stands for Ayyam-i-Há, 20 for Alá. 
+
 @param Integer day = Day of month [1 - 19 (1 - 4/5 for Ayyam-i-Há)]
+
 @param Bool startsOn = [Optional, default=false] If true, gets the Gregorian date on which the Badi date starts.  If false, gets the Gregorian date on which the Badi date ends.
+
 @return BadiDate - BadiCal.BadiDate object whose values represent the respective Gregorian date.
 
 ####Usage Example
+```javascript
 var gregdate = BadiCal.BadiToGregorian(172, 1, 1); //NawRuz 2015
 console.log(gregdate.year()); //2015
 console.log(gregdate.month()); //3
 console.log(gregdate.day()); //21
-
+```
 
 **BadiCal.GregorianToBadi(year, month, day, startOf)**
+
 @param Integer year = Year in the Gregorian Calendar (1844 or greater)
+
 @param Integer month = Month in the Gregorian Calendar [1 - 12]. **NOTE:** This is (1) based NOT (0) like the native Javascript Date object. 
+
 @param Integer day = Day of month [1 - 31].
+
 @param Bool startOf = [Optional, default=false] If true, gets the Badi date which starts on this Gregorian date.  If false, gets the Badi date which ends on this Gregorian date.
+
 @return BadiDate - BadiCal.BadiDate object whose values represent the respective Badi date.
 
 ####Usage Example
+```javascript
 var badidate = BadiCal.GregorianToBadi(2015, 3, 21); //NawRuz 2015
 console.log(badidate.year()); //172
 console.log(badidate.month()); //1
 console.log(badidate.day()); //1
+```
 
 	
 ###BadiDate object
 This object is used both internally for the library and as the output.  Each object contains some convenience functions.  Each object can contain either CE or BE dates.
 
 **'Constructor'** newnew BadiCal.BadiDate(year, month, day, BadiCal.BADI)
+
 @param Integer year
+
 @param Integer month 
+
 @param Integer day
+
 @param String type = Expresses the calendar type represented by the object. Expects library variables BadiCal.GREGORIAN or BadiCal.BADI
 
 ####Usage Example
+```javascript
 var bDate = new BadiCal.BadiDate(172, 1, 1, BadiCal.BADI);//Nawruz 2015
+```
 
 **year(format)**
+
 @param format = [Optional, default=false] Pads single digits with prepended '0' (zero).
+
 @return Year represented by this object.
 
 **month(format)**
+
 @param format = [Optional, default=false] Pads single digits with prepended '0' (zero).
+
 @return Month represented by this object.
 
+
 **monthName(format)**
+
 @return Month name (in English for Gregorian).
 
 **day(format)**
+
 @param format = [Optional, default=false] Pads single digits with prepended '0' (zero).
+
 @return Day represented by this object.
 
 
@@ -90,7 +117,9 @@ Used as BadiDate type for BE dates.
 Array with names for Badi Calendar months (zero based).  Includes Ayyam-i-Há.
 
 **BadiCal.getAyyamiha(bYear)**
+
 @param Integer bYear = Year on Badi calendar [1 or greater];
+
 @return Integer = Length of Ayyam-i-Há in that BE year [4-5]
 
 ##Suggestions
