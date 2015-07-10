@@ -1,5 +1,5 @@
 # BadiCal.js
-Javascript Library to translate between Gregorian and Badi calendars.
+Javascript Library to translate between Gregorian and [Badi / Bahai](https://en.wikipedia.org/wiki/Bah%C3%A1%27%C3%AD_calendar) calendars.
 
 See it in action: http://www.dmcblue.com/badical/
 
