@@ -267,6 +267,18 @@ var BadiCal =
 			return (next_nr - this_nr) / (millisecPerDay) - (19 * 19);
 		};
 	
+	var getMonthDays =
+		function(bYear){
+			var months = [];
+			for(var i = 0; i < 18; i++){
+				months.push(19);
+			}
+			months.push(getAyyamiha(bYear));
+			months.push(19);
+			
+			return months;
+		}
+	
 	/**
 	 * 
 	 * 
@@ -294,12 +306,7 @@ var BadiCal =
 			
 			var bYear = year - 1843;
 			
-			var months = [];
-			for(var i = 0; i < 18; i++){
-				months.push(19);
-			}
-			months.push(getAyyamiha(year - 1843));
-			months.push(19);
+			var months = getMonthDays(bYear);
 			
 			var m = 0;
 			while(num_days > months[m]){
@@ -321,11 +328,11 @@ var BadiCal =
 				startsOn = false;
 			}
 			
+			var bDate = new BadiDate(one, two, three);
 			if(startsOn){
-				three--;
+				//bDate.sub(1);
 			}
 			
-			var bDate = new BadiDate(one, two, three);
 			var nr_year = bDate.year() + 1843;
 			var nr_date = getNawruzDate(nr_year);
 			
@@ -335,6 +342,10 @@ var BadiCal =
 				+ bDate.day() //days in month
 				- 1
 			;
+			
+			if(startsOn){
+				num_days--;
+			}
 			
 			var date = new Date(nr_date.getTime() + num_days*millisecPerDay + (4*60*60*1000));//4 hours to deal with DST
 			

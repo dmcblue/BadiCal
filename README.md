@@ -1,5 +1,5 @@
-# BadiCal.js
-Javascript Library to translate between Gregorian and [Badi / Bahai](https://en.wikipedia.org/wiki/Bah%C3%A1%27%C3%AD_calendar) calendars.
+# BadiCal
+Library to translate between Gregorian and [Badi / Bahai](https://en.wikipedia.org/wiki/Bah%C3%A1%27%C3%AD_calendar) calendars.
 
 See it in action: http://www.dmcblue.com/badical/
 
@@ -9,19 +9,35 @@ The library uses precalculated NawRuz dates from http://wilmetteinstitute.org/wp
 
 It currently has very simple functionality and interface.  As it's used more, functionality may be added and the usage interface may be made more dynamic/easy-to-use.
 
+It was originally written for Javascript and has a port to PHP.
+
 ##Files
-###The Library
+###Javascript
+####The Library
 **BadiCal.js** - This is the only file needed to use the library, other files are only for testing.
 
-###Testing
+####Testing
 **test.html** - Page that goes through a list dates and compares the translation to the expected translation.
 
 **jquery-2.1.1.min.js** - Necessary for test.html.
 
-##Use
-BadiCal.js (currently) works primarily with 'static' translation functions and 'BadiDate' objects.
+###PHP
+####The Library
+**load.php** - Only file needed to be called in order to use the library (require_once).
+**BadiBase.php** - Basic static values and utility functions.
+**BadiDate.php** - BadiDate class used to house date information.
+**BadiCal.php** - Runs the transformations.
 
-Everything is contained in the 'BadiCal' global object.
+
+####Testing
+**test.php** - Script that goes through a list dates and compares the translation to the expected translation. Can be run from terminal or as webpage.
+
+##Use
+BadiCal (currently) works primarily with 'static' translation functions and 'BadiDate' objects.
+
+Javascript: Everything is contained in the 'BadiCal' global object.
+
+The following examples are in Javascript but are simple translations to PHP. (Will add such translations here at a later point)
 
 ###Translation
 **BadiCal.BadiToGregorian(year, month, day, startsOn)**
