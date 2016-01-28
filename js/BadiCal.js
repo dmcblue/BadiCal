@@ -208,7 +208,7 @@ var BadiCal =
 	 */
 	var beforeNawruz = 
 		function(gDate){
-			return gDate.month() < 4 && gDate.day() < getNawruz(gDate);
+			return gDate.month() < 3 || (gDate.month() == 3 && gDate.day() < getNawruz(gDate));
 		};
 	
 	/**
