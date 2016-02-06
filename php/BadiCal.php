@@ -6,6 +6,8 @@
 		}
 		
 		static public function beforeNawruz ($gDate){
+			return $gDate->month() < 3 || ($gDate->month() == 3 && $gDate->day() < self::getNawruz($gDate));
+			
 			return $gDate->month() < 4 
 				&& $gDate->day() < self::getNawruz($gDate);
 		}

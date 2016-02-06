@@ -7,6 +7,10 @@
 	
 	$tests =
 		array(
+			array(	//Failure check
+				'g' => array('y' => 2016, 'm' => 1, 'd' => 25),
+				'b' => array('y' => 172, 'm' => 17, 'd' => 7)
+			),
 			array(	//Naw Ruz
 				'g' => array('y' => 2015, 'm' => 3, 'd' => 21),
 				'b' => array('y' => 172, 'm' => 1, 'd' => 1)
@@ -53,6 +57,8 @@
 		return $date->year(true).'-'.$date->month(true).'-'.$date->day(true);
 	}
 	
+	$results = array('b2g' => array('success' => 0, 'failure' => 0), 'g2b' => array('success' => 0, 'failure' => 0));
+	
 	foreach($tests as $i => $test){
 		$bd = $test['b'];
 		$gd = $test['g'];
@@ -70,12 +76,23 @@
 		echo $tb.$tb.$tb.'Expected: '.out($gdate).$nl;
 		echo $tb.$tb.$tb.'Output: '.out($egdate).$nl;
 		echo $tb.$tb. (test($egdate, $gdate) ? 'SUCCESS' : 'FAILURE').$nl;
+		
+		$results['b2g'][test($egdate, $gdate) ? 'success' : 'failure']++;
+		
 		echo $tb.'Gregorian To Badi: '.$nl;
 		echo $tb.$tb.'Gregorian: '.out($gdate).$nl;
 		echo $tb.$tb.'Badi: '.$nl;
 		echo $tb.$tb.$tb.'Expected: '.out($bdate).$nl;
 		echo $tb.$tb.$tb.'Output: '.out($ebdate).$nl;
 		echo $tb.$tb. (test($ebdate, $bdate) ? 'SUCCESS' : 'FAILURE').$nl.$nl;
+		
+		$results['g2b'][test($ebdate, $bdate) ? 'success' : 'failure']++;
 		//break;
 	}
+	
+	echo "Summary:\n\tBadi To Gregorian: "
+		.$results['b2g']['success']." successes, "
+		.$results['b2g']['failure']." failures\n\tGregorian to Badi: "
+		.$results['g2b']['success']." successes, "
+		.$results['g2b']['failure']." failures";
 ?>
