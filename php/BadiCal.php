@@ -45,7 +45,7 @@
 				);
 			
 			$int = $this_nr->diff($next_nr);
-			return $int->format('%a');
+			return $int->format('%a') - (19 * 19) - 1;
 		}
 		
 		static public function GregorianToBadi($one, $two, $three, $startOf = false){
@@ -72,7 +72,7 @@
 			for($i = 0; $i < 18; $i++){
 				$months[] = 19;
 			}
-			$months[] = self::getAyyamiha($year - 1843);
+			$months[] = self::getAyyamiha($bYear);
 			$months[] = 19;
 			
 			$m = 0;
@@ -91,11 +91,11 @@
 			
 			$num_days = 
 				min($bDate->month() - 1, 18)*19 //first 18 months
-				+ ($bDate->month() - 1 > 19 ? self::getNawruz($bDate->year()) : 0)
+				+ ($bDate->month() > 19 ? self::getAyyamiha($bDate->year()) : 0)
 				+ $bDate->day() //days in month
 				- 1
 			;
-			
+			echo "<br/><br/>".$num_days."<br/><br/>";
 			if($startsOn){
 				$num_days--;
 			}
