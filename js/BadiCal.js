@@ -338,7 +338,7 @@ var BadiCal =
 			
 			var num_days = 
 				Math.min(bDate.month() - 1, 18)*19 //first 18 months
-				+ (bDate.month() - 1 > 19 ? getAyyamiha(bDate.year()) : 0) //Ayyam-i-Ha
+				+ (bDate.month() > 19 ? getAyyamiha(bDate.year()) : 0) //Ayyam-i-Ha
 				+ bDate.day() //days in month
 				- 1
 			;
