@@ -11,35 +11,35 @@ It currently has very simple functionality and interface.  As it's used more, fu
 
 It was originally written for Javascript and has a port to PHP.
 
-##Files
-###Javascript
-####The Library
+## Files
+### Javascript
+#### The Library
 **BadiCal.js** - This is the only file needed to use the library, other files are only for testing.
 
-####Testing
+#### Testing
 **test.html** - Page that goes through a list dates and compares the translation to the expected translation.
 
 **jquery-2.1.1.min.js** - Necessary for test.html.
 
-###PHP
-####The Library
+### PHP
+#### The Library
 **load.php** - Only file needed to be called in order to use the library (require_once).
 **BadiBase.php** - Basic static values and utility functions.
 **BadiDate.php** - BadiDate class used to house date information.
 **BadiCal.php** - Runs the transformations.
 
 
-####Testing
+#### Testing
 **test.php** - Script that goes through a list dates and compares the translation to the expected translation. Can be run from terminal or as webpage.
 
-##Use
+## Use
 BadiCal (currently) works primarily with 'static' translation functions and 'BadiDate' objects.
 
 Javascript: Everything is contained in the 'BadiCal' global object.
 
 The following examples are in Javascript but are simple translations to PHP. (Will add such translations here at a later point)
 
-###Translation
+### Translation
 **BadiCal.BadiToGregorian(year, month, day, startsOn)**
 
 @param Integer year = Year in the Badi Calendar (1 or greater)
@@ -72,7 +72,7 @@ console.log(gregdate.day()); //21
 
 @return BadiDate - BadiCal.BadiDate object whose values represent the respective Badi date.
 
-####Usage Example
+#### Usage Example
 ```javascript
 var badidate = BadiCal.GregorianToBadi(2015, 3, 21); //NawRuz 2015
 console.log(badidate.year()); //172
@@ -81,7 +81,7 @@ console.log(badidate.day()); //1
 ```
 
 	
-###BadiDate object
+### BadiDate object
 This object is used both internally for the library and as the output.  Each object contains some convenience functions.  Each object can contain either CE or BE dates.
 
 **'Constructor'** newnew BadiCal.BadiDate(year, month, day, BadiCal.BADI)
@@ -94,7 +94,7 @@ This object is used both internally for the library and as the output.  Each obj
 
 @param String type = Expresses the calendar type represented by the object. Expects library variables BadiCal.GREGORIAN or BadiCal.BADI
 
-####Usage Example
+#### Usage Example
 ```javascript
 var bDate = new BadiCal.BadiDate(172, 1, 1, BadiCal.BADI);//Nawruz 2015
 ```
@@ -123,7 +123,7 @@ var bDate = new BadiCal.BadiDate(172, 1, 1, BadiCal.BADI);//Nawruz 2015
 @return Day represented by this object.
 
 
-###Other
+### Other
 There are some other functions and variables attached to the BadiCal object which are used internally and may be useful to developers.
 
 **BadiCal.GREGORIAN**
@@ -144,7 +144,7 @@ Array with names for Badi Calendar months (zero based).  Includes Ayyam-i-Há.
 
 @return Integer = Length of Ayyam-i-Há in that BE year [4-5]
 
-##Suggestions
+## Suggestions
 If there is specific functionality or easy usage missing, please let me know.  I will try to add to the library (support Javascript Date, etc).
 
 I may even expand this to other scripting languages.
