@@ -1,3 +1,9 @@
+## This library has moved!!
+
+Please see [BadiCalJS](https://github.com/BahaiCalendar/BadiCalJS) and [BadiCalPHP](https://github.com/BahaiCalendar/BadiCalPHP)
+
+The new version supports Node/NPM and Composer.
+
 # BadiCal
 Library to translate between Gregorian and [Badi / Bahai](https://en.wikipedia.org/wiki/Bah%C3%A1%27%C3%AD_calendar) calendars.
 
